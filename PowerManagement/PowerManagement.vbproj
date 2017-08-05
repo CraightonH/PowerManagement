@@ -9,7 +9,7 @@
     </SchemaVersion>
     <ProjectGuid>{09E44830-EF24-4D98-B891-45F70AB3F670}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>PowerManagement.Service1</StartupObject>
+    <StartupObject>PowerManagement.PowerManagement</StartupObject>
     <RootNamespace>PowerManagement</RootNamespace>
     <AssemblyName>PowerManagement</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.ServiceProcess" />
@@ -91,6 +92,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Prank.vb" />
+    <Compile Include="ProjectInstaller.Designer.vb">
+      <DependentUpon>ProjectInstaller.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectInstaller.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utilities.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -101,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PowerManagement.resx">
       <DependentUpon>PowerManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

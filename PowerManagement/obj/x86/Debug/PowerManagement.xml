@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PowerManagement
+</name>
+</assembly>
+<members>
+<member name="P:PowerManagement.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PowerManagement.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:PowerManagement.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:PowerManagement.Prank.LockWorkStation">
+	<summary>
+ This hooks into the dll that contains the method for locking the workstation and exposes the method for use in this Module
+ </summary>
+</member><member name="F:PowerManagement.Prank.probabilityLowerBound">
+	<summary>
+ This will determine the lowest possible value of probability
+ </summary>
+	<remarks>This can probably be moved to the config file after testing</remarks>
+</member><member name="F:PowerManagement.Prank.probabilitySuccessThreshold">
+	<summary>
+ This will determine the lowest number by which a success is defined
+ </summary>
+	<remarks>This can probably be moved to the config file after testing</remarks>
+</member><member name="F:PowerManagement.Prank.probabilityUpperBound">
+	<summary>
+ This will determine the highest possible value of probability
+ </summary>
+	<remarks>This can probably be moved to the config file after testing</remarks>
+</member><member name="T:PowerManagement.Prank.Pranks">
+	<summary>
+ This Enum will be the programmatic names of the pranks
+ </summary>
+</member><member name="M:PowerManagement.Prank.Dispose">
+	<summary>
+ This method will handle releasing any resources used in this module
+ </summary>
+</member><member name="M:PowerManagement.Prank.PerformPrank(System.Diagnostics.EventLog)">
+	<summary>
+ This will be the entry point into this file
+ It will handle determining probability and then execute a prank
+ </summary>
+	<param name="EventLog">The Event Log object so logs can be kept</param>
+</member><member name="M:PowerManagement.Prank.Lock(System.Diagnostics.EventLog)">
+	<summary>
+ This routine will handle locking the computer
+ </summary>
+	<param name="EventLog">The Event Log object so logs can be kept</param>
+</member><member name="M:PowerManagement.Utilities.RNG(System.Int32,System.Int32)">
+	<summary>
+ This will get a random number between the lower and upper bounds
+ </summary>
+	<returns>Integer</returns>
+	<remarks>Taken from MSDN article: https://msdn.microsoft.com/en-us/library/f7s023d2(v=vs.90).aspx </remarks>
+</member>
+</members>
+</doc>

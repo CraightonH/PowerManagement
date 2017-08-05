@@ -1,0 +1,10 @@
+D:\Development\WindowsServices\PowerManagement\PowerManagement\bin\Debug\PowerManagement.exe
+D:\Development\WindowsServices\PowerManagement\PowerManagement\bin\Debug\PowerManagement.pdb
+D:\Development\WindowsServices\PowerManagement\PowerManagement\bin\Debug\PowerManagement.xml
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.Resources.resources
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.PowerManagement.resources
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.ProjectInstaller.resources
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.vbproj.GenerateResource.Cache
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.exe
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.xml
+D:\Development\WindowsServices\PowerManagement\PowerManagement\obj\x86\Debug\PowerManagement.pdb
