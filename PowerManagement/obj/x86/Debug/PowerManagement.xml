@@ -19,10 +19,6 @@ PowerManagement
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="M:PowerManagement.Prank.LockWorkStation">
-	<summary>
- This hooks into the dll that contains the method for locking the workstation and exposes the method for use in this Module
- </summary>
 </member><member name="F:PowerManagement.Prank.probabilityLowerBound">
 	<summary>
  This will determine the lowest possible value of probability
@@ -51,12 +47,12 @@ PowerManagement
  This will be the entry point into this file
  It will handle determining probability and then execute a prank
  </summary>
-	<param name="EventLog">The Event Log object so logs can be kept</param>
+	<param name="PowerManagementLog">The Event Log object so logs can be kept</param>
 </member><member name="M:PowerManagement.Prank.Lock(System.Diagnostics.EventLog)">
 	<summary>
  This routine will handle locking the computer
  </summary>
-	<param name="EventLog">The Event Log object so logs can be kept</param>
+	<param name="PowerManagementLog">The Event Log object so logs can be kept</param>
 </member><member name="M:PowerManagement.Utilities.RNG(System.Int32,System.Int32)">
 	<summary>
  This will get a random number between the lower and upper bounds

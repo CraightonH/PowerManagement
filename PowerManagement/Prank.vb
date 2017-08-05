@@ -1,10 +1,5 @@
 ﻿Module Prank
     ''' <summary>
-    ''' This hooks into the dll that contains the method for locking the workstation and exposes the method for use in this Module
-    ''' </summary>
-    Private Declare Sub LockWorkStation Lib "user32.dll" ()
-
-    ''' <summary>
     ''' This will determine the lowest possible value of probability
     ''' </summary>
     ''' <remarks>This can probably be moved to the config file after testing</remarks>
@@ -40,21 +35,31 @@
     ''' This will be the entry point into this file
     ''' It will handle determining probability and then execute a prank
     ''' </summary>
-    ''' <param name="EventLog">The Event Log object so logs can be kept</param>
-    Public Function PerformPrank(ByVal EventLog As EventLog) As Boolean
+    ''' <param name="PowerManagementLog">The Event Log object so logs can be kept</param>
+    Public Function PerformPrank(ByVal PowerManagementLog As EventLog) As Boolean
         Dim roll As Integer = Utilities.RNG(probabilityLowerBound, probabilityUpperBound)
-        EventLog.WriteEntry(String.Format("PerformPrank lowerBound: {0}, roll: {1}, upperBound: {2}", probabilityLowerBound.ToString(), roll.ToString(), probabilityUpperBound.ToString()))
+        PowerManagementLog.WriteEntry(String.Format("PerformPrank lowerBound: {0}, roll: {1}, upperBound: {2}", probabilityLowerBound.ToString(), roll.ToString(), probabilityUpperBound.ToString()))
         'TODO: ADD PROBABILITY CONDITIONS
-        Lock(EventLog)
+        Lock(PowerManagementLog)
         Return True
     End Function
 
     ''' <summary>
     ''' This routine will handle locking the computer
     ''' </summary>
-    ''' <param name="EventLog">The Event Log object so logs can be kept</param>
-    Private Sub Lock(ByVal EventLog As EventLog)
-        EventLog.WriteEntry("Lock: {0}", Pranks.LockComputer.ToString())
-        'LockWorkStation()
+    ''' <param name="PowerManagementLog">The Event Log object so logs can be kept</param>
+    Private Sub Lock(ByVal PowerManagementLog As EventLog)
+        PowerManagementLog.WriteEntry("Lock")
+        Dim info As New ProcessStartInfo("D:\WindowsAutomation\ComputerPyjamas.exe", "-lockthedoor")
+        info.UseShellExecute = False
+        info.RedirectStandardError = True
+        info.RedirectStandardInput = True
+        info.RedirectStandardOutput = True
+        info.CreateNoWindow = True
+        info.ErrorDialog = False
+        info.WindowStyle = ProcessWindowStyle.Hidden
+
+        Dim process As New Process
+        process.Start(info)
     End Sub
 End Module

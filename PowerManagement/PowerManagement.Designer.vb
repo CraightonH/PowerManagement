@@ -41,14 +41,15 @@ Partial Class PowerManagement
     ' Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.EventLog = New System.Diagnostics.EventLog()
-        CType(Me.EventLog, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PowerManagementLog = New System.Diagnostics.EventLog()
+        CType(Me.PowerManagementLog, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'PowerManagement
         '
         Me.ServiceName = "PowerManagement"
+        CType(Me.PowerManagementLog, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
-    Friend WithEvents EventLog As System.Diagnostics.EventLog
+    Friend WithEvents PowerManagementLog As System.Diagnostics.EventLog
 
 End Class

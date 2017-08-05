@@ -5,28 +5,31 @@
     Public Sub New()
         MyBase.New()
         InitializeComponent()
-        Me.EventLog = New System.Diagnostics.EventLog
-        If Not System.Diagnostics.EventLog.SourceExists("PowerManagement") Then
-            System.Diagnostics.EventLog.CreateEventSource("PowerManagement", "Log")
+        Me.PowerManagementLog = New System.Diagnostics.EventLog
+        Dim sourceName As String = "Power Management"
+        Dim logName As String = "Power Management Log"
+        If Not System.Diagnostics.EventLog.SourceExists("Power Management") Then
+            System.Diagnostics.EventLog.CreateEventSource(sourceName, logName)
         End If
-        EventLog.Source = "PowerManagement"
-        EventLog.Log = "Log"
+        Me.PowerManagementLog.Source = sourceName
+        Me.PowerManagementLog.Log = logName
     End Sub
 
     Protected Overrides Sub OnStart(ByVal args() As String)
-        EventLog.WriteEntry("Service is starting")
+        Me.PowerManagementLog.WriteEntry("Service is starting")
         ' Add code here to start your service. This method should set things
         ' in motion so your service can do its work.
-        StartTimer(10)
-        EventLog.WriteEntry("Service has started")
+        StartTimer(90)
+        Me.PowerManagementLog.WriteEntry("Service has started")
     End Sub
 
     Protected Overrides Sub OnStop()
         ' Add code here to perform any tear-down necessary to stop your service.
         StopTimer()
         prankTimer.Dispose()
-        EventLog.Dispose()
         Prank.Dispose()
+        PowerManagementLog.WriteEntry("Service has stopped")
+        Me.PowerManagementLog.Dispose()
     End Sub
 
     Public Sub StartTimer(ByVal intervalSeconds As Integer)
@@ -42,7 +45,7 @@
     End Sub
 
     Private Sub OnTimer(sender As Object, e As Timers.ElapsedEventArgs)
-        If Prank.PerformPrank(EventLog) Then
+        If Prank.PerformPrank(Me.PowerManagementLog) Then
             ' NOTHING NEEDS TO BE DONE HERE, BUT CAN BE WHETHER PRANK SUCCEEDS OR NOT
         End If
     End Sub
